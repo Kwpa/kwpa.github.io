@@ -21,6 +21,21 @@
   </div>
 </div>
 
+<!-- Place for displaying a message from Unity -->
+<div class="centered">
+   <h2>Message from Unity</h2>
+   <p id="lblMessage">...</p>
+</div>
+<script>
+   // Function which receives a message from Unity
+   function receiveMessageFromUnity(txt) {
+      // Get element to assign the message
+      const lblMessage = document.getElementById("lblMessage");
+      // Assign received from Unity message
+      lblMessage.innerText = txt;
+   }
+</script>
+
 <script>
   let tabsWithContent = (function () {
     let tabs = document.querySelectorAll('.tabs li');

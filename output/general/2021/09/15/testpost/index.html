@@ -50,6 +50,21 @@
   </div>
 </div>
 
+<!-- Place for displaying a message from Unity -->
+<div class="centered">
+   <h2>Message from Unity</h2>
+   <p id="lblMessage">...</p>
+</div>
+<script>
+   // Function which receives a message from Unity
+   function receiveMessageFromUnity(txt) {
+      // Get element to assign the message
+      const lblMessage = document.getElementById("lblMessage");
+      // Assign received from Unity message
+      lblMessage.innerText = txt;
+   }
+</script>
+
 <script>
   let tabsWithContent = (function () {
     let tabs = document.querySelectorAll('.tabs li');
@@ -94,13 +109,13 @@
       <div class="container">
         <div class="field is-grouped">
           <div class="control">
-            <button class="button is-link is-danger is-outlined is-large" onclick="gameInstance.SendMessage('Slider', 'BoostHealth')"></button>
+            <button class="button is-link is-danger is-outlined is-large" onclick="gameInstance.SendMessage('Slider', 'BoostHealth')">Boost</button>
           </div>
           <div class="control">
-            <button class="button is-link" onclick="gameInstance.SendMessage('Slider', 'ChangeLoseHealthRate',10)">Rate = 10</button>
+            <button class="button is-link" onclick="gameInstance.SendMessage('Slider', 'ChangeLoseHealthRate',10)">Loss Rate = 10</button>
           </div>
           <div class="control">
-            <button class="button is-link" onclick="gameInstance.SendMessage('Slider', 'ChangeLoseHealthRate',100)">Rate = 100</button>
+            <button class="button is-link" onclick="gameInstance.SendMessage('Slider', 'ChangeLoseHealthRate',100)">Loss Rate = 100</button>
           </div>
         </div>
       </div>
@@ -113,14 +128,14 @@
     <div class="section">
       <div class="container">
         <div class="field is-grouped">
-          <label class="label">LossRate</label>
+          <label class="label">Loss Rate Custom  </label>
           <div class="control">
             <input class="input" type="number" id="lossrateinput" placeholder="1" value="1">
           </div>
           <div class="control">
             <button class="button is-link is-primary" onclick="changeLossRateScript()">Submit</button>
           </div>
-          <label class="label">BoostRate</label>
+          <label class="label">Boost Rate Custom  </label>
           <div class="control">
             <input class="input" type="number" id="boostrateinput" placeholder="10" value="10">
           </div>
@@ -134,7 +149,7 @@
 </div>
 
 <footer>
-  Contact me at <a href="mailto:"></a>
+  Contact me at <a href="mailto:your-email@example.com">your-email@example.com</a>
 </footer>
 
 <script>
