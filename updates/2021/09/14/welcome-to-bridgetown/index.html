@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<title>Your First Post on Bridgetown POST IT NOW! | Your awesome title</title>
+
+<meta name="description" content="Write an awesome description for your new site here. It will appear in your document head meta (for Google search results) and in your feed.xml site description." />
+
+<link rel="stylesheet" href="/_bridgetown/static/css/main.fe88ae164130ee1296fa.css" />
+<script src="/_bridgetown/static/js/main.0811b103c2b1181ddec3.js" defer></script>
+
+  </head>
+  <body class="post ">
+    <nav>
+  <a href="/">Home</a>
+  <a href="/about">About</a>
+  <a href="/posts">Posts</a>
+  <a class="button is-primary">
+      your-email@example.com
+  </a>
+</nav>
+
+
+    <main>
+      <h1>Your First Post on Bridgetown POST IT NOW!</h1>
+
+
+   <script src="/unity/webgl-test/TemplateData/UnityProgress.js"></script>
+<script src="/unity/webgl-test/Build/UnityLoader.js"></script>
+<script>
+  var gameInstance = UnityLoader.instantiate("gameContainer", "/unity/webgl-test/Build/webgl-test.json",{onProgress: UnityProgress});
+</script>
+
+<div id="tabs-with-content">
+  <div class="tabs is-centered is-boxed">
+    <ul>
+      <li><a>Game</a></li>
+      <li><a>Info</a></li>
+    </ul>
+  </div>
+  <div>
+    <section class="tab-content">
+    <div class="webgl-content">
+      <div id="gameContainer" style="width: 960px; height: 600px"></div>
+    </div>
+    </section>
+    <section class="tab-content">Info here</section>
+  </div>
+</div>
+
+<!-- Place for displaying a message from Unity -->
+<div class="centered">
+   <h2>Message from Unity</h2>
+   <p id="lblMessage">...</p>
+</div>
+<script>
+   // Function which receives a message from Unity
+   function receiveMessageFromUnity(txt) {
+      // Get element to assign the message
+      const lblMessage = document.getElementById("lblMessage");
+      // Assign received from Unity message
+      lblMessage.innerText = txt;
+   }
+</script>
+
+<script>
+  let tabsWithContent = (function () {
+    let tabs = document.querySelectorAll('.tabs li');
+    let tabsContent = document.querySelectorAll('.tab-content');
+
+    let deactvateAllTabs = function () {
+      tabs.forEach(function (tab) {
+        tab.classList.remove('is-active');
+      });
+    };
+
+    let hideTabsContent = function () {
+      tabsContent.forEach(function (tabContent) {
+        tabContent.classList.remove('is-active');
+      });
+    };
+
+    let activateTabsContent = function (tab) {
+      tabsContent[getIndex(tab)].classList.add('is-active');
+    };
+
+    let getIndex = function (el) {
+      return [...el.parentElement.children].indexOf(el);
+    };
+
+    tabs.forEach(function (tab) {
+      tab.addEventListener('click', function () {
+        deactvateAllTabs();
+        hideTabsContent();
+        tab.classList.add('is-active');
+        activateTabsContent(tab);
+      });
+    })
+
+    tabs[0].click();
+  })();
+</script>
+
+   <div class="level">
+  <div class="level-item">
+    <div class="section">
+      <div class="container">
+        <div class="field is-grouped">
+          <div class="control">
+            <button class="button is-link is-danger is-outlined is-large" onclick="gameInstance.SendMessage('Slider', 'BoostHealth')">Boost</button>
+          </div>
+          <div class="control">
+            <button class="button is-link" onclick="gameInstance.SendMessage('Slider', 'ChangeLoseHealthRate',10)">Loss Rate = 10</button>
+          </div>
+          <div class="control">
+            <button class="button is-link" onclick="gameInstance.SendMessage('Slider', 'ChangeLoseHealthRate',100)">Loss Rate = 100</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="level">
+  <div class="level-item">
+    <div class="section">
+      <div class="container">
+        <div class="field is-grouped">
+          <label class="label">Loss Rate Custom  </label>
+          <div class="control">
+            <input class="input" type="number" id="lossrateinput" placeholder="1" value="1">
+          </div>
+          <div class="control">
+            <button class="button is-link is-primary" onclick="changeLossRateScript()">Submit</button>
+          </div>
+          <label class="label">Boost Rate Custom  </label>
+          <div class="control">
+            <input class="input" type="number" id="boostrateinput" placeholder="10" value="10">
+          </div>
+          <div class="control">
+            <button class="button is-link is-primary" onclick="changeBoostRateScript()">Submit</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  Contact me at <a href="mailto:your-email@example.com">your-email@example.com</a>
+</footer>
+
+<script>
+  function changeLossRateScript()
+  {
+    var val = document.getElementById("lossrateinput").value;
+    gameInstance.SendMessage('Slider', 'ChangeLoseHealthRateString', val);
+    console.log(val);
+  }
+</script>
+
+<script>
+  function changeBoostRateScript()
+  {
+    var val = document.getElementById("boostrateinput").value;
+    gameInstance.SendMessage('Slider', 'ChangeBoostRateString', val);
+    console.log(val);
+  }
+</script>
+
+
+
+<p>You’ll find this post in your <code class="highlighter-rouge">_posts</code> directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run <code class="highlighter-rouge">bridgetown serve</code>, which launches a web server and auto-regenerates your site when a file is updated.</p>
+
+<p>Bridgetown requires blog post files to be named according to the following format:</p>
+
+<p><code class="highlighter-rouge">YEAR-MONTH-DAY-title.EXT</code></p>
+
+<p>Where <code class="highlighter-rouge">YEAR</code> is a four-digit number, <code class="highlighter-rouge">MONTH</code> and <code class="highlighter-rouge">DAY</code> are both two-digit numbers, and <code class="highlighter-rouge">EXT</code> is the file extension representing the format used in the file (for example, <code class="highlighter-rouge">md</code> for Markdown). After that, include the necessary front matter. Take a look at the source for this post to get an idea about how it works.</p>
+
+<p>Bridgetown also offers powerful support for code snippets:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">print_hi</span><span class="p">(</span><span class="nb">name</span><span class="p">)</span>
+  <span class="nb">puts</span> <span class="s2">"Hi, </span><span class="si">#{</span><span class="nb">name</span><span class="si">}</span><span class="s2">"</span>
+<span class="k">end</span>
+<span class="n">print_hi</span><span class="p">(</span><span class="s1">'Tom'</span><span class="p">)</span>
+<span class="c1">#=&gt; prints 'Hi, Tom' to STDOUT.</span>
+</code></pre></div></div>
+
+<p>Check out the <a href="https://bridgetownrb.com/docs/">Bridgetown docs</a> for more info on how to get the most out of Bridgetown. File all bugs/feature requests at <a href="https://github.com/bridgetownrb/bridgetown">Bridgetown’s GitHub repo</a>. If you have questions, you can ask them on <a href="https://github.com/bridgetownrb/bridgetown/discussions">Bridgetown Discussions on GitHub</a>.</p>
+
+
+    </main>
+
+    <footer>
+  Contact me at <a href="mailto:your-email@example.com">your-email@example.com</a>
+</footer>
+
+  </body>
+</html>
