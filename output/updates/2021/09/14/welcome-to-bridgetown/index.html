@@ -30,11 +30,58 @@
    <script src="/unity/webgl-test/TemplateData/UnityProgress.js"></script>
 <script src="/unity/webgl-test/Build/UnityLoader.js"></script>
 <script>
-  var gameInstance = UnityLoader.instantiate("gameContainer", "/unity/webgl-test/Build/build1.json",{onProgress: UnityProgress});
+  var gameInstance = UnityLoader.instantiate("gameContainer", "/unity/webgl-test/Build/webgl-test.json",{onProgress: UnityProgress});
 </script>
 <div class="webgl-content">
   <div id="gameContainer" style="width: 960px; height: 600px"></div>
 </div>
+
+   <div class="field is-grouped is-centered">
+  <label class="label is-centered">LossRate</label>
+  <div class="control">
+    <input class="input" type="number" id="lossrateinput" placeholder="1" value="1">
+  </div>
+  <div class="control">
+    <button class="button is-link is-primary" onclick="changeLossRateScript()">Submit</button>
+  </div>
+  <label class="label is-centered">BoostRate</label>
+  <div class="control">
+    <input class="input" type="number" id="boostrateinput" placeholder="10" value="10">
+  </div>
+  <div class="control">
+    <button class="button is-link is-primary" onclick="changeBoostRateScript()">Submit</button>
+  </div>
+</div>
+
+<div class="field is-grouped is-centered">
+  <div class="control">
+    <button class="button is-link is-danger is-outlined is-large" onclick="gameInstance.SendMessage('Slider', 'BoostHealth')">Submit</button>
+  </div>
+  <div class="control">
+    <button class="button is-link" onclick="gameInstance.SendMessage('Slider', 'ChangeLoseHealthRate',10)">Rate = 10</button>
+  </div>
+  <div class="control">
+    <button class="button is-link" onclick="gameInstance.SendMessage('Slider', 'ChangeLoseHealthRate',100)">Rate = 100</button>
+  </div>
+</div>
+
+<script>
+  function changeLossRateScript()
+  {
+    var val = document.getElementById("lossrateinput").value;
+    gameInstance.SendMessage('Slider', 'ChangeLoseHealthRateString', val);
+    console.log(val);
+  }
+</script>
+
+<script>
+  function changeBoostRateScript()
+  {
+    var val = document.getElementById("boostrateinput").value;
+    gameInstance.SendMessage('Slider', 'ChangeBoostRateString', val);
+    console.log(val);
+  }
+</script>
 
 
 

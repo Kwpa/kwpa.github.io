@@ -1,7 +1,7 @@
 <script src="{{ site.baseurl }}/unity/webgl-test/TemplateData/UnityProgress.js"></script>
 <script src="{{ site.baseurl }}/unity/webgl-test/Build/UnityLoader.js"></script>
 <script>
-  var gameInstance = UnityLoader.instantiate("gameContainer", "{{ site.baseurl}}/unity/webgl-test/Build/build1.json",{onProgress: UnityProgress});
+  var gameInstance = UnityLoader.instantiate("gameContainer", "{{ site.baseurl}}/unity/webgl-test/Build/webgl-test.json",{onProgress: UnityProgress});
 </script>
 <div class="webgl-content">
   <div id="gameContainer" style="width: 960px; height: 600px"></div>
