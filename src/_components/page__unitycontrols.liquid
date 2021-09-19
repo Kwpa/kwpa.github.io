@@ -4,7 +4,7 @@
       <div class="container">
         <div class="field is-grouped">
           <div class="control">
-            <button class="button is-link is-danger is-outlined is-large" onclick="gameInstance.SendMessage('Slider', 'BoostHealth')">Boost</button>
+            <button class="button is-link is-danger is-outlined is-large" onclick="gameInstance.SendMessage('Slider', 'BoostHealth')">{{ metadata.email }}</button>
           </div>
           <div class="control">
             <button class="button is-link" onclick="gameInstance.SendMessage('Slider', 'ChangeLoseHealthRate',10)">Rate = 10</button>
@@ -42,6 +42,10 @@
     </div>
   </div>
 </div>
+
+<footer>
+  Contact me at <a href="mailto:{{ metadata.email }}">{{ metadata.email }}</a>
+</footer>
 
 <script>
   function changeLossRateScript()

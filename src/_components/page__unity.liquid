@@ -3,6 +3,58 @@
 <script>
   var gameInstance = UnityLoader.instantiate("gameContainer", "{{ site.baseurl}}/unity/webgl-test/Build/webgl-test.json",{onProgress: UnityProgress});
 </script>
-<div class="webgl-content">
-  <div id="gameContainer" style="width: 960px; height: 600px"></div>
+
+<div id="tabs-with-content">
+  <div class="tabs is-centered is-boxed">
+    <ul>
+      <li><a>Game</a></li>
+      <li><a>Info</a></li>
+    </ul>
+  </div>
+  <div>
+    <section class="tab-content">
+    <div class="webgl-content">
+      <div id="gameContainer" style="width: 960px; height: 600px"></div>
+    </div>
+    </section>
+    <section class="tab-content">Info here</section>
+  </div>
 </div>
+
+<script>
+  let tabsWithContent = (function () {
+    let tabs = document.querySelectorAll('.tabs li');
+    let tabsContent = document.querySelectorAll('.tab-content');
+
+    let deactvateAllTabs = function () {
+      tabs.forEach(function (tab) {
+        tab.classList.remove('is-active');
+      });
+    };
+
+    let hideTabsContent = function () {
+      tabsContent.forEach(function (tabContent) {
+        tabContent.classList.remove('is-active');
+      });
+    };
+
+    let activateTabsContent = function (tab) {
+      tabsContent[getIndex(tab)].classList.add('is-active');
+    };
+
+    let getIndex = function (el) {
+      return [...el.parentElement.children].indexOf(el);
+    };
+
+    tabs.forEach(function (tab) {
+      tab.addEventListener('click', function () {
+        deactvateAllTabs();
+        hideTabsContent();
+        tab.classList.add('is-active');
+        activateTabsContent(tab);
+      });
+    })
+
+    tabs[0].click();
+  })();
+</script>
