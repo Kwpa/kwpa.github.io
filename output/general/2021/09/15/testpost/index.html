@@ -36,32 +36,48 @@
   <div id="gameContainer" style="width: 960px; height: 600px"></div>
 </div>
 
-   <div class="field is-grouped is-centered">
-  <label class="label is-centered">LossRate</label>
-  <div class="control">
-    <input class="input" type="number" id="lossrateinput" placeholder="1" value="1">
-  </div>
-  <div class="control">
-    <button class="button is-link is-primary" onclick="changeLossRateScript()">Submit</button>
-  </div>
-  <label class="label is-centered">BoostRate</label>
-  <div class="control">
-    <input class="input" type="number" id="boostrateinput" placeholder="10" value="10">
-  </div>
-  <div class="control">
-    <button class="button is-link is-primary" onclick="changeBoostRateScript()">Submit</button>
+   <div class="level">
+  <div class="level-item">
+    <div class="section">
+      <div class="container">
+        <div class="field is-grouped">
+          <div class="control">
+            <button class="button is-link is-danger is-outlined is-large" onclick="gameInstance.SendMessage('Slider', 'BoostHealth')">Boost</button>
+          </div>
+          <div class="control">
+            <button class="button is-link" onclick="gameInstance.SendMessage('Slider', 'ChangeLoseHealthRate',10)">Rate = 10</button>
+          </div>
+          <div class="control">
+            <button class="button is-link" onclick="gameInstance.SendMessage('Slider', 'ChangeLoseHealthRate',100)">Rate = 100</button>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 
-<div class="field is-grouped is-centered">
-  <div class="control">
-    <button class="button is-link is-danger is-outlined is-large" onclick="gameInstance.SendMessage('Slider', 'BoostHealth')">Submit</button>
-  </div>
-  <div class="control">
-    <button class="button is-link" onclick="gameInstance.SendMessage('Slider', 'ChangeLoseHealthRate',10)">Rate = 10</button>
-  </div>
-  <div class="control">
-    <button class="button is-link" onclick="gameInstance.SendMessage('Slider', 'ChangeLoseHealthRate',100)">Rate = 100</button>
+<div class="level">
+  <div class="level-item">
+    <div class="section">
+      <div class="container">
+        <div class="field is-grouped">
+          <label class="label">LossRate</label>
+          <div class="control">
+            <input class="input" type="number" id="lossrateinput" placeholder="1" value="1">
+          </div>
+          <div class="control">
+            <button class="button is-link is-primary" onclick="changeLossRateScript()">Submit</button>
+          </div>
+          <label class="label">BoostRate</label>
+          <div class="control">
+            <input class="input" type="number" id="boostrateinput" placeholder="10" value="10">
+          </div>
+          <div class="control">
+            <button class="button is-link is-primary" onclick="changeBoostRateScript()">Submit</button>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 
